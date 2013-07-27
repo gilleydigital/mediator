@@ -1,6 +1,6 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
-class Controller_Assets extends Controller {
+class Controller_assets extends Controller {
 	protected $media;
 
 	public function action_media()
