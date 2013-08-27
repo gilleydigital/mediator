@@ -1,17 +1,21 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
-class Kohana_Minify{
+class Kohana_Filter{
 	public static function minify ($input, $type)
 	{
 		if ($type === 'styles')
 		{
-			return Minify::minify_styles($input);
+			return Filter::minify_styles($input);
 		}
 
 		if ($type === 'scripts')
 		{
-			return Minify::minify_scripts($input);
+			return Filter::minify_scripts($input);
 		}
+	}
+	
+	public static function custom($input) {
+		return $input;
 	}
 	
 	private static function minify_styles ($input)

@@ -1,7 +1,7 @@
 <?php defined('SYSPATH') or die('No direct script access.');
  
 class Task_Compile extends Minion_Task
-{
+{	
 	protected function _execute(array $params)
     {
 		$media_types = array(
@@ -36,9 +36,12 @@ class Task_Compile extends Minion_Task
 						$profiles[$profile]['combined'] .= file_get_contents($path);			
 					}
 				}
+								
+				// Filter
+				$output = Filter::minify($profiles[$profile]['combined'], $type);
 				
-				// Minify
-				$output = Minify::minify($profiles[$profile]['combined'], $type);
+				// Custom Filter, if any
+				$output = Filter::custom($output);
 				
 				$output_folder = APPPATH.'../assets';
 				
