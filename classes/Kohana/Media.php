@@ -23,14 +23,14 @@ abstract class Kohana_Media {
 		
 		// Add from plugins
 		$plugins_config = Kohana::$config->load('plugins');
-		$schemas_config = Kohana::$config->load('plugin.blueprints');
+		$schemas_config = Kohana::$config->load('plugin/blueprints');
 		
 		$plugins = $plugins_config->get($profile) ? $plugins_config->get($profile) : array();
 		
 		$from_plugins = array();
 		foreach ($plugins as $plugin)
 		{
-			$from_this_plugin = Kohana::$config->load('plugin.blueprints.'.$plugin.'.'.$type);
+			$from_this_plugin = $schemas_config[$plugin][$type];
 			if (is_array($from_this_plugin))
 			{
 				foreach ($from_this_plugin as $file)
@@ -39,7 +39,7 @@ abstract class Kohana_Media {
 				}
 			}
 		}
-		
+				
 		// Add from buffer
 		$from_buffer = Media::$_buffer[$type];
 		// Clear the buffer
@@ -93,6 +93,7 @@ abstract class Kohana_Media {
 		return $return_me;
 	}
 	
+	// Splits a string into prefix & string
 	protected static function parse ($name)
 	{
 		// $name will be either 'string' or 'prefix/string'
