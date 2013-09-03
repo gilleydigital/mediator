@@ -41,6 +41,7 @@ class Kohana_Styles extends Media{
 			{
 				$path = Media::MEDIA_FOLDER.'/'.Styles::get_path($file).'.'.Styles::EXT;
 				$uncompressed .= HTML::style($path);
+				$uncompressed .= PHP_EOL;
 			}
 		}
 		

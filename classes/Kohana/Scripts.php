@@ -39,6 +39,7 @@ class Kohana_Scripts extends Media {
 			{
 				$path = Media::MEDIA_FOLDER.'/'.Scripts::get_path($file).'.'.Scripts::EXT;
 				$uncompressed .= HTML::script($path);
+				$uncompressed .= PHP_EOL;
 			}
 		}
 		
