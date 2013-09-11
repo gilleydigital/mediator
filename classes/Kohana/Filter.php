@@ -14,10 +14,6 @@ class Kohana_Filter{
 		}
 	}
 	
-	public static function custom($input) {
-		return $input;
-	}
-	
 	private static function minify_styles ($input)
 	{
 		require_once Kohana::find_file('vendor', 'cssmin/CssMin');
@@ -34,5 +30,11 @@ class Kohana_Filter{
 		$output = JsMin::minify($input);
 		
 		return $output;
+	}
+	
+	// For overriding with custom filters
+	public static function custom ($input)
+	{
+		return $input;
 	}
 }
