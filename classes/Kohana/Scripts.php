@@ -34,7 +34,7 @@ class Kohana_Scripts extends Media {
 				$prod_file_exists = true;
 			}
 			
-			// Dev: output everything, Prod: only if more specific than plugin (otherwise it's in the combined prod script)
+			// Dev: output everything, Prod: only if more specific than Scripts::CUTOFF (otherwise it's in the combined prod script)
 			if ((Kohana::$environment !== Kohana::PRODUCTION) OR ($file['priority'] > Scripts::CUTOFF))
 			{
 				$path = Media::MEDIA_FOLDER.'/'.Scripts::get_path($file).'.'.Scripts::EXT;

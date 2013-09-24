@@ -36,7 +36,7 @@ class Kohana_Styles extends Media{
 				$prod_file_exists = true;
 			}
 			
-			// Dev: output everything, Prod: only if more specific than template (otherwise it's in the combined prod stylesheet)
+			// Dev: output everything, Prod: only if more specific than Styles::CUTOFF (otherwise it's in the combined prod stylesheet)
 			if ((Kohana::$environment !== Kohana::PRODUCTION) or ($file['priority'] > Styles::CUTOFF))
 			{
 				$path = Media::MEDIA_FOLDER.'/'.Styles::get_path($file).'.'.Styles::EXT;
