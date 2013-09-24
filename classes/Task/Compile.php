@@ -43,7 +43,7 @@ class Task_Compile extends Minion_Task
 				// Custom Filter, if any
 				$output = Filter::custom($output);
 				
-				$output_folder = APPPATH.'../media';
+				$output_folder = APPPATH.'../assets';
 				
 				// Spit out the beautiful files
 				file_put_contents($output_folder.'/'.$profile.'.'.$type::EXT, $output);
