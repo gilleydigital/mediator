@@ -58,7 +58,7 @@ abstract class Kohana_Media {
 		$doubles = array();
 		
 		// Filter and add stubs to $sort_me
-		foreach($input as $key => $subarray)
+		foreach ($input as $key => $subarray)
 		{
 			// Check for name doubles
 			if ( ! in_array($subarray[0], $doubles))
@@ -76,7 +76,7 @@ abstract class Kohana_Media {
 		$return_me = array();
 
 		// Add the full arrays to $return_me
-		foreach($sort_me AS $key => $priority)
+		foreach ($sort_me AS $key => $priority)
 		{
 			// Move things around to make it a little nicer to work with
 			$file = Media::parse($input[$key][0]);
